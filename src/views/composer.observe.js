@@ -108,6 +108,11 @@
         }, 0);
       }
     });
+    
+    // --------- keydown event ---------
+    dom.observe(element, "keydown", function(event) {
+      that.parent.fire("keydown");
+    });
 
     // --------- neword event ---------
     dom.observe(element, "keyup", function(event) {
