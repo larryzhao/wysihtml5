@@ -8368,7 +8368,7 @@ wysihtml5.views.View = Base.extend(
   
     // --------- :focus styles ---------
     focusWithoutScrolling(textareaElement);
-    dom.copyStyles(BOX_FORMATTING).from(textareaElement).to(this.focusStylesHost);
+    //dom.copyStyles(BOX_FORMATTING).from(textareaElement).to(this.focusStylesHost);
     dom.copyStyles(TEXT_FORMATTING).from(textareaElement).to(this.focusStylesHost);
   
     // Make sure that we don't change the display style of the iframe when copying styles oblur/onfocus
