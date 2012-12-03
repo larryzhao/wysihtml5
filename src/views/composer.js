@@ -114,6 +114,7 @@
       });
       this.iframe  = this.sandbox.getIframe();
 
+
       // Create hidden field which tells the server after submit, that the user used an wysiwyg editor
       var hiddenField = document.createElement("input");
       hiddenField.type   = "hidden";

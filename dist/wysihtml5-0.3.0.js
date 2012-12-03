@@ -8035,6 +8035,7 @@ wysihtml5.views.View = Base.extend(
       });
       this.iframe  = this.sandbox.getIframe();
 
+
       // Create hidden field which tells the server after submit, that the user used an wysiwyg editor
       var hiddenField = document.createElement("input");
       hiddenField.type   = "hidden";
@@ -8231,7 +8232,8 @@ wysihtml5.views.View = Base.extend(
       new wysihtml5.UndoManager(this.parent);
     }
   });
-})(wysihtml5);(function(wysihtml5) {
+})(wysihtml5);
+(function(wysihtml5) {
   var dom             = wysihtml5.dom,
       doc             = document,
       win             = window,
@@ -8355,7 +8357,8 @@ wysihtml5.views.View = Base.extend(
     }
   
     // --------- iframe styles (has to be set before editor styles, otherwise IE9 sets wrong fontFamily on blurStylesHost) ---------
-    dom.copyStyles(BOX_FORMATTING).from(textareaElement).to(this.iframe).andTo(this.blurStylesHost);
+    // This is disabled by Larry.
+    //dom.copyStyles(BOX_FORMATTING).from(textareaElement).to(this.iframe).andTo(this.blurStylesHost);      
   
     // --------- editor styles ---------
     dom.copyStyles(TEXT_FORMATTING).from(textareaElement).to(this.element).andTo(this.blurStylesHost);
@@ -8421,7 +8424,8 @@ wysihtml5.views.View = Base.extend(
   
     return this;
   };
-})(wysihtml5);/**
+})(wysihtml5);
+/**
  * Taking care of events
  *  - Simulating 'change' event on contentEditable element
  *  - Handling drag & drop logic
@@ -8531,6 +8535,11 @@ wysihtml5.views.View = Base.extend(
         }, 0);
       }
     });
+    
+    // --------- keydown event ---------
+    dom.observe(element, "keydown", function(event) {
+      that.parent.fire("keydown");
+    });
 
     // --------- neword event ---------
     dom.observe(element, "keyup", function(event) {
@@ -8604,7 +8613,8 @@ wysihtml5.views.View = Base.extend(
       }
     });
   };
-})(wysihtml5);/**
+})(wysihtml5);
+/**
  * Class that takes care that the value of the composer and the textarea is always in sync
  */
 (function(wysihtml5) {
