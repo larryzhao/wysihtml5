@@ -8357,8 +8357,8 @@ wysihtml5.views.View = Base.extend(
     }
   
     // --------- iframe styles (has to be set before editor styles, otherwise IE9 sets wrong fontFamily on blurStylesHost) ---------
-    // This is disabled by Larry.
-    //dom.copyStyles(BOX_FORMATTING).from(textareaElement).to(this.iframe).andTo(this.blurStylesHost);      
+    
+    //dom.copyStyles(BOX_FORMATTING).from(textareaElement).to(this.iframe).andTo(this.blurStylesHost);     // This is disabled by Larry. 
   
     // --------- editor styles ---------
     dom.copyStyles(TEXT_FORMATTING).from(textareaElement).to(this.element).andTo(this.blurStylesHost);
@@ -8368,7 +8368,7 @@ wysihtml5.views.View = Base.extend(
   
     // --------- :focus styles ---------
     focusWithoutScrolling(textareaElement);
-    //dom.copyStyles(BOX_FORMATTING).from(textareaElement).to(this.focusStylesHost);
+    //dom.copyStyles(BOX_FORMATTING).from(textareaElement).to(this.focusStylesHost); // This is disabled by Larry.
     dom.copyStyles(TEXT_FORMATTING).from(textareaElement).to(this.focusStylesHost);
   
     // Make sure that we don't change the display style of the iframe when copying styles oblur/onfocus
@@ -8413,12 +8413,12 @@ wysihtml5.views.View = Base.extend(
   
     // --------- Sync focus/blur styles ---------
     this.parent.observe("focus:composer", function() {
-      dom.copyStyles(boxFormattingStyles) .from(that.focusStylesHost).to(that.iframe);
+      //dom.copyStyles(boxFormattingStyles) .from(that.focusStylesHost).to(that.iframe);  // This is disabled by Larry.
       dom.copyStyles(TEXT_FORMATTING)     .from(that.focusStylesHost).to(that.element);
     });
 
     this.parent.observe("blur:composer", function() {
-      dom.copyStyles(boxFormattingStyles) .from(that.blurStylesHost).to(that.iframe);
+      //dom.copyStyles(boxFormattingStyles) .from(that.blurStylesHost).to(that.iframe);   // This is disabled by Larry.
       dom.copyStyles(TEXT_FORMATTING)     .from(that.blurStylesHost).to(that.element);
     });
   
