@@ -8534,7 +8534,7 @@ wysihtml5.views.View = Base.extend(
     
     // --------- keydown event ---------
     dom.observe(element, "keydown", function(event) {
-      that.parent.fire("keydown");
+      that.parent.fire("keydown", event);
     });
 
     // --------- neword event ---------
