@@ -166,11 +166,7 @@
             originalComposerDisplayStyle = dom.getStyle("display").from(that.iframe);
         textareaElement.style.display = "";
         that.iframe.style.display = "none";
-        dom.copyStyles(RESIZE_STYLE)
-          .from(textareaElement)
-          .to(that.iframe)
-          .andTo(that.focusStylesHost)
-          .andTo(that.blurStylesHost);
+        //dom.copyStyles(RESIZE_STYLE).from(textareaElement).to(that.iframe).andTo(that.focusStylesHost).andTo(that.blurStylesHost);
         that.iframe.style.display = originalComposerDisplayStyle;
         textareaElement.style.display = originalTextareaDisplayStyle;
       });
